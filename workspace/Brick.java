@@ -26,6 +26,7 @@ public class Brick {
 	
 	
 	//getters and setters
+	
 	public int getWidth() {
 		return width;
 	}
