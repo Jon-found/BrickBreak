@@ -1,4 +1,3 @@
-import java.awt.Graphics;
 import java.awt.*;
 
 public class Paddle {
@@ -58,20 +57,34 @@ public class Paddle {
     public void setVelocity(int velocity) {
         this.velocity = velocity;
     }
-
+//velocity may be whatever becuase if it exceeds an amount it will be resets to an reasobale amount.
+//manges speed of the paddle. and resests if it gets to high.
     public void addVelocity(int velocity) {
         this.velocity += velocity;
+        if(velocity > 6){
+            velocity = 6;
+        }
+    if (velocity< -6){
+
+        velocity=-6;
+    }
     }
 
-    // Movement method
+    // Movement method, makes sure it doesnt exceed an high amount of speed.
+    //screen width has to be 682 and x/ velocity has to be the same.
     public void move() {
         x += velocity;
-
+        if(velocity>0){
+            velocity --;
+        }
+        if(velocity<0){
+            velocity++;
+        }
         // Prevent paddle from moving off-screen
         if (x < 0) {
             x = 0;
         }
-        if (x + width > 682) { // Assuming the screen width is 682
+        if (x + width > 682) { // screen width is 682
             x = 682 - width;
         }
     }
